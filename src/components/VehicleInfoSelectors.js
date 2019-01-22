@@ -3,16 +3,10 @@ import React from 'react';
 import { Row } from 'mdbreact';
 import vehicleData from './vehicleData';
 
-// Broken record here just commenting on all possibly incorrectly placed objects.
-const vehicleInfo = {};
-
 class VehicleInfoSelectors extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      vehicleInfo,
-    };
-  }
+  state = {
+    vehicleInfo: {},
+  };
 
   // Adds list of years from vehicleData to options for year dropdrown.
   yearDropDownOptionsCreator = obj => Object.keys(obj)
@@ -21,6 +15,7 @@ class VehicleInfoSelectors extends React.Component {
   // Adds list of makes from vehicleData to options for make
   // dropdown based on year selected or typed if available.
   makeDropDownOptionsCreator = (obj, num) => {
+    const { vehicleInfo } = this.state;
     if (obj[vehicleInfo[`year${num}`]]) {
       return Object.keys(obj[vehicleInfo[`year${num}`]])
         .map(items => <option value={items} />);
@@ -31,6 +26,7 @@ class VehicleInfoSelectors extends React.Component {
   // Adds list of models from vehicleData to options for model
   // dropdown based on year and make selected or typed if available.
   modelDropDownOptionsCreator = (obj, num) => {
+    const { vehicleInfo } = this.state;
     try {
       return Object.values(obj[vehicleInfo[`year${num}`]][vehicleInfo[`make${num}`]])
         .map(items => <option value={items} />);
@@ -48,7 +44,8 @@ class VehicleInfoSelectors extends React.Component {
           <label
             id={`carLabelId${selectorNumber}`}
             htmlFor={`vehicleYearStatus${selectorNumber}`}
-            className="black-text">Year of vehicle?
+            className="black-text">
+            Year of vehicle?
             <input
               type="text"
               className="form-control"

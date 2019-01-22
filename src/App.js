@@ -12,7 +12,7 @@ const leadData = {};
 
 class App extends Component {
   state = {
-    leadData,
+    leadData: {},
     route: 'bInfo',
     numberOfVehicles: '',
   };

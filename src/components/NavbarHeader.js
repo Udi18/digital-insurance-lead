@@ -7,13 +7,10 @@ import {
 } from 'mdbreact';
 
 class NavbarHeader extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      collapse1: false,
-      collapseID: '',
-    };
-  }
+  state = {
+    collapse1: false,
+    collapseID: '',
+  };
 
   // Function from MDBReact
   toggleCollapse = collapseID => () => {

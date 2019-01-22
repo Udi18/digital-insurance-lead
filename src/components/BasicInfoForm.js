@@ -6,17 +6,14 @@ import PersonalInfoSelectors from './PersonalInfoSelectors';
 // Should this be in state and change the changeHandler?
 
 class BasicInfoForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      basicInfoObj: {},
-    };
+  state = {
+    basicInfoObj: {},
   }
-  basicInfoObj = {};
-  
+
   // Renders the basic information form on the bInfo state.
   render() {
     const { infoChangeHandler, submitInfoHandler } = this.props;
+    const { basicInfoObj } = this.state;
     return (
       <div className="grey-text">
         <Container className="mt-5">

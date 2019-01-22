@@ -2,20 +2,15 @@
 import React from 'react';
 import { Row } from 'mdbreact';
 
-// Add to state?
-const personalInfoObj = {};
-
 class PersonalInfoSelectors extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      personalInfoObj,
-    };
-  }
+  state = {
+    personalInfoObj: {},
+  };
 
   // Renders the personal information dropdown selectors on the bInfo route state.
   render() {
     const { infoChangeHandler } = this.props;
+    const { personalInfoObj } = this.state;
     return (
       <Row className="pt-3">
         <div className="col-md mb-3">

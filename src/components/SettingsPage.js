@@ -3,15 +3,14 @@ import React from 'react';
 import { Container, Row, Col } from 'mdbreact';
 
 // consider bringing this to the state directly.
-const settingsInfo = {};
-
 class SettingsPage extends React.Component {
  state = {
-   settingsInfo,
+   settingsInfo: {},
  }
 
  render() {
    const { infoChangeHandler, submitInfoHandler } = this.props;
+   const { settingsInfo } = this.state;
    return (
     <div className="grey-text">
       <Container className="mt-5">
